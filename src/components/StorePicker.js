@@ -20,7 +20,12 @@ class StorePicker extends React.Component {
 		// return React.createElement('p', {classname: 'Testing'}, 'I love you');
 		return (
 			<form className="store-selector" onSubmit={ this.goToStore }>
-				{ /* Comments within the return are never the first element */ }
+				{ /* Alternative way to do the binding for goToStore to 'this' is: */ }
+				{ /* onSubmit = { this.goToStore.bind(this) } */ }
+				{ /* or */ }
+				{ /* onSubmit = { (e) => this.goToStore(e) } */ }
+				{ /* Doing it this way will create an individual function for every component rendered */ }
+				{ /* Whereas using the constructor way refers to the goToStore function. No duplication.*/ }
 				<h2>Please Enter A Store</h2>
 				<input type="text" required placeholder="Store Name" defaultValue={ getFunName() } ref={ (input) => { this.storeInput = input; } }/>
 				<button type="submit">Visit Store</button>

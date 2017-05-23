@@ -35,6 +35,7 @@ class Order extends React.Component {
 			if (isAvailable) {
 				return prevTotal + (count * fish.price || 0);
 			}
+			return prevTotal;
 		}, 0);
 		return (
 			<div className="order-wrap">
